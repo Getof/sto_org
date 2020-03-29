@@ -14,6 +14,7 @@ app.options('*', cors);
 app.use(bodyParser.json);
 app.use(bodyParser.urlencoded({extended: true}));
 app.use('/img', express.static(__dirname+'/public/img'));
+app.use(require("./lib/express-router"));
 let server = require('http').createServer(app);
 const io = require("socket.io").listen(server);
 process.on('unhandledRejection', r => console.log(r));
